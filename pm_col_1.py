@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# Revision 1.0 by laurance.gao@ericsson.com 20170620
+# Revision 1.1 by laurance.gao@ericsson.com 20170620
 import time
 import datetime
 import sys, os, re
