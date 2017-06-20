@@ -49,7 +49,7 @@ logging.basicConfig(level=logging.INFO,
 #logging.getLogger('').addHandler(Rthandler)
 ################################################################################################
 
-# Under 2nd sub-directory of work_dir, filter out files matching file_pattern, 
+# Under 2nd sub-directory of work_dir, filter out files matching file_pattern,
 # then archieve & compress using tarfile_pattern to output_dir
 def make_files_list(target_dir, regx, delay):
     # if dir is not a directory, exit with error
