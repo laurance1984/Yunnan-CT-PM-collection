@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# Revision 1.1 by laurance.gao@ericsson.com 20170620
+# Revision 1.2 by laurance.gao@ericsson.com 20170620
 import time
 import datetime
 import sys, os, re
@@ -107,7 +107,7 @@ if __name__ == '__main__':
             thread_group = 10   #10 threads run simultaneously 
             thread_file_list =[]        #list of list
             thread_slice = len(file_list)/thread_group                  
-            for i in range(0,thread_group - 1):
+            for i in range(thread_group - 1):
                 thread_file_list.append(file_list[i*thread_slice:i*thread_slice + thread_slice])
             thread_file_list.append(file_list[(thread_group - 1)*thread_slice:])
                         
