@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# Revision 1.3 by laurance.gao@ericsson.com 20170621
+# Revision 1.4 by laurance.gao@ericsson.com 20170621
 import time
 import datetime
 import sys, os
@@ -28,9 +28,9 @@ rop_end_str = rop_end_sec.strftime("%H%M")
 file_pattern = rop_start_date + '.' + rop_start_str
 tarfile_pattern = output_fix[0] + rop_start_date + rop_start_str + "-" + rop_end_str + output_fix[1]
 
-work_dir = "/var/opt/ericsson/nms_umts_pms_seg/segment1/XML/"
+work_dir = "/var/opt/ericsson/nms_umts_pms_seg/segment1/NEWXML/"
 output_dir = "/var/opt/ericsson/sgw/outputfiles/pmfiles/"
-log_dir = "/var/opt/ericsson/pmcol/log/"       
+log_dir = "/var/opt/ericsson/pmcol/log/"
 
 logging.basicConfig(level=logging.INFO,
                 format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -87,7 +87,7 @@ if __name__ == '__main__':
         logging.info ("There are " + str(len(file_list)) + " files to be zipped")
         logging.info ("Start creating tar.gz file...")
         try:            
-            cmd = '/usr/sfw/bin/gtar -zcpf ' + output_dir + tarfile_pattern + ' ' + ' '.join(file_list) 
+            cmd = '/usr/sfw/bin/gtar -zcpf ' + output_dir + tarfile_pattern + ' ' + ' '.join(file_list) + ' --transform=\"s/NEWXML/XML/g\"'
             os.system(cmd)
             logging.info ("Tar file " + tarfile_pattern + " has been created!")
         except Exception as e:
